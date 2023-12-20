@@ -51,6 +51,12 @@ class SecurityStuff extends Construct {
     });
 
     ftpBucket.grantReadWrite(this.ec2Role);
+    const passwordSecret = secrets.Secret.fromSecretNameV2(
+      this,
+      "FTPPassword",
+      "ftpUser_Password",
+    );
+    passwordSecret.grantRead(this.ec2Role);
 
     this.ec2SecurityGroup = new ec2.SecurityGroup(this, "ec2SecurityGroup", {
       vpc: VPC,
@@ -87,12 +93,6 @@ class SecurityStuff extends Construct {
       }),
       "Allow incoming FTP for VSFTPD",
     );
-    const passwordSecret = secrets.Secret.fromSecretNameV2(
-      this,
-      "FTPPassword",
-      "ftpUser_Password",
-    );
-    passwordSecret.grantRead(this.ec2Role);
   }
 }
 

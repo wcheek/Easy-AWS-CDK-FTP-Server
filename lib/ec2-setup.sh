@@ -1,5 +1,5 @@
 #!/bin/sh
-"yum update"
+yum update
 # "yum upgrade -y"
 
 # Use mount-s3 to mount a directory with the bucket
