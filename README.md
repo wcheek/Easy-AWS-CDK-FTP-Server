@@ -1,5 +1,7 @@
 # Cheap & Easy AWS FTP Server with EC2 and S3
 
+The github repository for this project is [here!](https://github.com/wcheek/Easy-AWS-CDK-FTP-Server/tree/main).
+
 ## Introduction
 
 Using `AWS CDK` we can quickly deploy a small `EC2 Instance` to act as an
@@ -66,3 +68,13 @@ to store a slightly customized `vsftpd.conf` file.
 4. Fix references to the `Key Pair`. I've named mine `"RiceCooker_FTP_Server"` -
    this needs to match the `Key Pair` that you just made.
 5. Copy the repo and `cdk deploy`!
+
+## Conclusion
+
+In researching this solution I ran into many different ways people were trying
+to make an affordable FTP server. Some used ECS, others were deploying
+docker containers onto an EC2 instance ([main inspiration](https://github.com/d-t-o/aws-vsftpd/tree/master)).
+I found them all to be overly complex, and I always prefer a repeatable approach
+using `CDK`.
+
+I hope you found this useful - let me know!
